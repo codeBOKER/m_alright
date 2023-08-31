@@ -61,7 +61,7 @@ Underneath alright is **Selenium** which is what does all the automation work by
 
 ## What you can do with alright?
 
-- [Send Messages](#sending-messages)
+- [type Messages](#sending-messages)
 - [Send Messages1](#sending-messages1)
 - [Send Images](#sending-images)
 - [Send Videos](#sending-videos)
@@ -118,7 +118,8 @@ To send a message with alright, you first need to target a specific user by usin
 >>> messenger.find_user('2557xxxxxz')
 >>> messages = ['Morning my love', 'I wish you a good night!']
 >>> for message in messages:  
-        messenger.send_message(message)    
+        messenger.type_message(message)
+		messenger.send_enter()
 ```
 
 ### Send Direct Message [NEW]
@@ -174,20 +175,21 @@ Here how to send a message to multiple users, Let's say we want to wish merry-x 
 >>> numbers = ['2557xxxxxx', '2557xxxxxx', '....']
 >>> for number in numbers:
         messenger.find_user(number)
-        messenger.send_message("I wish you a Merry X-mass and Happy new year ")
+        messenger.type_message("I wish you a Merry X-mass and Happy new year ")
+		messenger.send_enter()
 ```
 
 *You have to include the **country code** in your number for this library to work but don't include the (+) symbol*
 
 ### Sending Images
 
-Sending Images is nothing new, its just the fact you have to include a path to your image and the message to accompany the image instead of just the raw string characters and also you have use *send_picture()*, Here an example;
+Sending Images is nothing new, its just the fact you have to include a path to your image and also you have use *send_picture()*, Here an example;
 
 ```python
 >>> from alright import WhatsApp
 >>> messenger = WhatsApp()
 >>> messenger.find_user('mobile')
->>> messenger.send_picture('path-to-image',"Text to accompany image")
+>>> messenger.send_picture('path-to-image')
 ```
 
 ### Sending Videos
